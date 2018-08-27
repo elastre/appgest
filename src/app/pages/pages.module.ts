@@ -3,6 +3,7 @@ import { PAGES_ROUTES } from './pages.routes';
 
 import { SharedModule } from '../shared/shared.module';
 import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ProgressComponent } from './progress/progress.component';
@@ -20,6 +21,7 @@ import { PipesModule } from '../pipes/pipes.module';
 import { IncrementadorComponent } from '../components/incrementador/incrementador.component';
 import { ChartDoughnutComponent } from '../components/graficas/chart-doughnut/chart-doughnut.component';
 import { AcountSettingsComponent } from './acount-settings/acount-settings.component';
+
 
 
 
@@ -41,6 +43,7 @@ import { AcountSettingsComponent } from './acount-settings/acount-settings.compo
         Graficas1Component,        
     ],
     imports:[
+        CommonModule,
         SharedModule,
         PAGES_ROUTES,
         FormsModule,     

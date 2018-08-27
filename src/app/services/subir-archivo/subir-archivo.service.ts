@@ -16,13 +16,13 @@ export class SubirArchivoService {
         let formData = new FormData();
         let xhr = new XMLHttpRequest();
   
-        formData.append('iamgen',archivo,archivo.name);
+        formData.append('imagen',archivo,archivo.name);
   
         xhr.onreadystatechange = function(){
           if(xhr.readyState === 4){
             if(xhr.status === 200){
               console.log('Imagen cargada.');
-              resolve(xhr.response);
+              resolve(JSON.parse(xhr.response));
             }else{
               console.log('Fallo la subida de la imagen.');
               reject(xhr.response);
@@ -30,7 +30,7 @@ export class SubirArchivoService {
           }  
         };
 
-        let url = URL_SERVICIOS + '/upload' + tipo + '/id';
+        let url = URL_SERVICIOS + '/upload/' + tipo + '/' + id;
 
         xhr.open('PUT',url,true);
         xhr.send(formData);
