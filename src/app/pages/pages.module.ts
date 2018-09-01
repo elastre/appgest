@@ -10,6 +10,8 @@ import { ProgressComponent } from './progress/progress.component';
 import { Graficas1Component } from './graficas1/graficas1.component';
 import { PagesComponent } from './pages.component';
 import { ProfileComponent } from './profile/profile.component';
+import { UsuariosComponent } from './usuarios/usuarios.component';
+
 
 ///ng2-Charts
 import { ChartsModule } from 'ng2-charts';
@@ -34,7 +36,7 @@ import { AcountSettingsComponent } from './acount-settings/acount-settings.compo
         IncrementadorComponent ,   //temporal    
         ChartDoughnutComponent,
         AcountSettingsComponent, 
-        ProfileComponent      
+        ProfileComponent, UsuariosComponent      
     ],
     exports: [
         PagesComponent,

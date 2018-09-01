@@ -39,7 +39,6 @@ export class UsuarioService {
     }
   }
 
-
   guardarStorage(id:string,token:string,usuario:Usuario){
     localStorage.setItem('id',id);
     localStorage.setItem('token',token);
@@ -123,4 +122,30 @@ export class UsuarioService {
         });
   }
 
+  CargarUsuarios(desde: number = 0){
+    let url = URL_SERVICIOS + '/usuario?desde=' + desde;
+    // url += '?token=' + this.token;
+
+    return this.http.get(url);
+
+  }
+
+  buscarUsuarios(termino: string){
+    let url = URL_SERVICIOS + '/busqueda/coleccion/usuarios/' + termino;
+    // url += '?token=' + this.token;
+
+    return this.http.get(url).pipe(
+      map( (resp : any)=> resp.usuarios));
+  }
+
+  borrarUsuario(id:string){
+    let url = URL_SERVICIOS + '/usuario/' + id;
+    url += '?token=' + this.token;
+    
+    return this.http.delete(url).pipe(
+      map( resp=>{
+        swal("Usuario Borrado!", 'El usuario ha sido eliminado correctamente', "success");
+        return true;
+      }));
+  }
 }

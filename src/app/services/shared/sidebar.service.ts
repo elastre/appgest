@@ -14,6 +14,16 @@ export class SidebarService {
         { titulo:'Barras de Progreso',url:'/progress'},
         { titulo:'Graficas',url:'/graficas1'}
       ]
+    },
+    { 
+      titulo:'Mantenimiento',
+      icono:'mdi mdi-folder-lock-open',
+      submenu:[
+        { titulo:'Usuarios',url:'/usuarios'},
+        { titulo:'Empleados',url:'/empleados'},
+        { titulo:'Contratos',url:'/contratos'},
+        { titulo:'Nominas',url:'/nominas'}
+      ]
     }
   ];
 
