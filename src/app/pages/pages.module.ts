@@ -11,7 +11,7 @@ import { Graficas1Component } from './graficas1/graficas1.component';
 import { PagesComponent } from './pages.component';
 import { ProfileComponent } from './profile/profile.component';
 import { UsuariosComponent } from './usuarios/usuarios.component';
-
+import { ModalUploadComponent } from '../components/modal-upload/modal-upload.component';
 
 ///ng2-Charts
 import { ChartsModule } from 'ng2-charts';
@@ -36,7 +36,8 @@ import { AcountSettingsComponent } from './acount-settings/acount-settings.compo
         IncrementadorComponent ,   //temporal    
         ChartDoughnutComponent,
         AcountSettingsComponent, 
-        ProfileComponent, UsuariosComponent      
+        ProfileComponent, UsuariosComponent,
+        ModalUploadComponent     
     ],
     exports: [
         PagesComponent,
