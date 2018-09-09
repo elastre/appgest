@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Usuario } from '../../models/usuario.model';
 import { UsuarioService } from '../../services/service.index';
+import { ModalUploadService } from '../../components/modal-upload/modal-upload.service';
 
 declare var swal:any; // esto es para evitar error al compilar, pues TS todavia no reconoce bien a swal
 
@@ -17,11 +18,16 @@ export class UsuariosComponent implements OnInit {
   cargando: boolean = true;
 
   constructor(
-    public _usuarioService : UsuarioService
+    public _usuarioService : UsuarioService,
+    public _modalUploadService: ModalUploadService
   ) { }
 
   ngOnInit() {
     this.cargarUsuarios();
+
+    this._modalUploadService.notificacion
+    .subscribe(resp=> this.cargarUsuarios());
+
   }
 
   cargarUsuarios(){
@@ -97,6 +103,12 @@ export class UsuariosComponent implements OnInit {
 
     this._usuarioService.actualizarUsuario(usuario)
       .subscribe();
+
+  }
+
+  mostrarModal(id:string){
+    
+    this._modalUploadService.mostrarModal('usuarios',id);
 
   }
 

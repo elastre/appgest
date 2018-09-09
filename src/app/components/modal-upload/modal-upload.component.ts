@@ -10,18 +10,22 @@ import { ModalUploadService } from './modal-upload.service';
 })
 export class ModalUploadComponent implements OnInit {
 
-  oculto : string = '';
-
   //usuario : Usuario;
   imagenSubir : File;
   imagenTemp : string;
 
   constructor(
     public _subirArchivoService: SubirArchivoService,
-    public _ModalUploadService : ModalUploadService
+    public _modalUploadService : ModalUploadService
   ) {}
 
   ngOnInit() {
+  }
+
+  cerrarModal(){
+    this.imagenTemp = null;
+    this.imagenSubir = null;
+    this._modalUploadService.ocultarModal();
   }
 
   seleccionImage(archivo:File){
@@ -47,7 +51,13 @@ export class ModalUploadComponent implements OnInit {
   }
 
   subirImagen(){
-
+    this._subirArchivoService.subirArchivo(this.imagenSubir,this._modalUploadService.tipo,this._modalUploadService.id)
+      .then(resp=>{
+        this._modalUploadService.notificacion.emit(resp);
+        this.cerrarModal();
+      }).catch(err=>{
+        console.log("Error en la cargar");
+      });
   }
 
 
